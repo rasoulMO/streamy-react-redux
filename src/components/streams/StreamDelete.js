@@ -12,7 +12,7 @@ class StreamDelete extends React.Component {
 
   renderActions() {
     const { id } = this.props.match.params;
-
+    //here we use React.Fragment to get redd of css issues!!
     return (
       <React.Fragment>
         <button
@@ -29,6 +29,7 @@ class StreamDelete extends React.Component {
   }
 
   renderContent() {
+    //here we condisionaly render the content!
     if (!this.props.stream) {
       return 'Are you sure you want to delete this stream?';
     }
@@ -41,6 +42,7 @@ class StreamDelete extends React.Component {
   }
 
   render() {
+    //our Modal have onDismiss propety some alowe the user to click i any point and that going to get him to cansal and take him to the old page!!
     return (
       <Modal
         title="Delete Stream"
@@ -51,7 +53,7 @@ class StreamDelete extends React.Component {
     );
   }
 }
-
+//here we take just what we need from streams!!
 const mapStateToProps = (state, ownProps) => {
   return { stream: state.streams[ownProps.match.params.id] };
 };
